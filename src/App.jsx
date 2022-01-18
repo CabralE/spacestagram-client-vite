@@ -1,43 +1,35 @@
-import { useState } from 'react'
-import logo from './logo.svg'
+import { useState, useEffect } from 'react'
 import './App.css'
+import {Route, Routes} from "react-router-dom"
+import Header from './Components/Header';
+import Main from './Components/Main';
+
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const URL = 'https://ed-spacestagram-shopify-backen.herokuapp.com/';
+
+  const [nasaInfo, setNasaInfo] = useState(null);
+
+  const getInfo = async () => {
+    const response = await fetch(URL);
+    const data = await response.json();
+    setNasaInfo(data);
+    console.log(data)
+  }
+  useEffect(() => getInfo(), []);
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
+      <Header />
+      <Routes>
+
+        <Route path="/" element={
+          <Main
+            nasaInfo={nasaInfo}
+          />
+        } />
+      </Routes>
     </div>
   )
 }
