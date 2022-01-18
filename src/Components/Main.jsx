@@ -6,7 +6,7 @@ const Main = (props) => {
     // deconstructing prop
     const nasaInfo = props.nasaInfo
     
-    const [isLiked, setIsLiked] = useState(true);
+    const [isLiked, setIsLiked] = useState(false);
     
     const loaded = () => {
         return (
