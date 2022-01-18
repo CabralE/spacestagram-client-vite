@@ -12,10 +12,11 @@ const Header = () => {
                     <li className="icon linked"><a href="https://www.linkedin.com/in/edward-cabral/">
                         <FaLinkedin /></a></li>
                     <li className="icon github"><a href="https://github.com/CabralE/spacestagram-client-vite">
-                        </a><FaGithub /></li>
+                        <FaGithub />
+                        </a></li>
                     
-                    <li className="icon shopify"><a href="https://www.shopify.com/">
-                        </a><FaShopify /></li>
+                    <li className="icon shopify"><a href="https://www.shopify.com/"><FaShopify />
+                        </a></li>
                     <br />
                 </ul>
             </div>

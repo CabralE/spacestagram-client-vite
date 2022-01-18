@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { BsFillHeartFill } from 'react-icons/bs';
 import { FaSpinner, FaThumbsUp } from 'react-icons/fa';
 
@@ -5,13 +6,8 @@ const Main = (props) => {
     // deconstructing prop
     const nasaInfo = props.nasaInfo
     
-    const [heart, setHeart] = ("")
-
-    const handleClick = () => {
-        console.log("test!", this)
-    }
+    const [isLiked, setIsLiked] = useState(true);
     
-
     const loaded = () => {
         return (
             <div className="container">
@@ -19,8 +15,9 @@ const Main = (props) => {
                 <img src={nasaInfo?.hdurl} alt="hdImage" className="image" />
                 <div className="content-container">
                     <div className="content">
-                        <div>
-                            <span className="heart" onclick={() => handleClick()}><BsFillHeartFill /></span>
+                        <div className='more-stuff'>
+                            <span className={isLiked ? "heart":"no-heart"} onClick={() => setIsLiked(!isLiked)}><BsFillHeartFill />
+                            </span>
                         </div>
                         <div>
                             <span>Taken by {nasaInfo?.copyright} on {nasaInfo?.date} </span>

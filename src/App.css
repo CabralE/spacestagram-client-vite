@@ -63,11 +63,20 @@ li {
   display: flex;
   justify-content: space-around;
 }
+
 .heart {
   color: red;
+  cursor: pointer;
+  padding-right: 100px;
+}
+
+.no-heart {
+  color: white;
+  cursor: pointer;
+  padding-right: 100px;
 }
 .content {
-  border: 3px solid white;
+  border: 3px solid transparent;
   padding: 30px 16px;
   border-radius: 3px;
   display: flex;
